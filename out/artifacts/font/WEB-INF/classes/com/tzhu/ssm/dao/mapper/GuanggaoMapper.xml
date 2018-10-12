@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tzhu.ssm.dao.GuanggaoMapper">
+    <resultMap id="BaseResultMap" type="com.tzhu.ssm.domain.Guanggao">
+        <id column="ggid" property="ggid" jdbcType="INTEGER"/>
+        <result column="ggtitle" property="ggtitle" jdbcType="VARCHAR"/>
+        <result column="ggimg" property="ggimg" jdbcType="VARCHAR"/>
+        <result column="ggurl" property="ggurl" jdbcType="VARCHAR"/>
+        <result column="ggtime" property="ggtime" jdbcType="INTEGER"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        ggid, ggtitle, ggimg, ggurl, ggtime
+    </sql>
+    <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.tzhu.ssm.domain.GuanggaoExample">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        'false' as QUERYID,
+        <include refid="Base_Column_List"/>
+        from guanggao
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from guanggao
+        where ggid = #{ggid,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from guanggao
+        where ggid = #{ggid,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.tzhu.ssm.domain.Guanggao">
+        insert into guanggao (ggid, ggtitle, ggimg,
+        ggurl, ggtime)
+        values (#{ggid,jdbcType=INTEGER}, #{ggtitle,jdbcType=VARCHAR}, #{ggimg,jdbcType=VARCHAR},
+        #{ggurl,jdbcType=VARCHAR}, #{ggtime,jdbcType=INTEGER})
+    </insert>
+    <insert id="insertSelective" parameterType="com.tzhu.ssm.domain.Guanggao">
+        insert into guanggao
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="ggid != null">
+                ggid,
+            </if>
+            <if test="ggtitle != null">
+                ggtitle,
+            </if>
+            <if test="ggimg != null">
+                ggimg,
+            </if>
+            <if test="ggurl != null">
+                ggurl,
+            </if>
+            <if test="ggtime != null">
+                ggtime,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="ggid != null">
+                #{ggid,jdbcType=INTEGER},
+            </if>
+            <if test="ggtitle != null">
+                #{ggtitle,jdbcType=VARCHAR},
+            </if>
+            <if test="ggimg != null">
+                #{ggimg,jdbcType=VARCHAR},
+            </if>
+            <if test="ggurl != null">
+                #{ggurl,jdbcType=VARCHAR},
+            </if>
+            <if test="ggtime != null">
+                #{ggtime,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByExampleSelective" parameterType="map">
+        update guanggao
+        <set>
+            <if test="record.ggid != null">
+                ggid = #{record.ggid,jdbcType=INTEGER},
+            </if>
+            <if test="record.ggtitle != null">
+                ggtitle = #{record.ggtitle,jdbcType=VARCHAR},
+            </if>
+            <if test="record.ggimg != null">
+                ggimg = #{record.ggimg,jdbcType=VARCHAR},
+            </if>
+            <if test="record.ggurl != null">
+                ggurl = #{record.ggurl,jdbcType=VARCHAR},
+            </if>
+            <if test="record.ggtime != null">
+                ggtime = #{record.ggtime,jdbcType=INTEGER},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update guanggao
+        set ggid = #{record.ggid,jdbcType=INTEGER},
+        ggtitle = #{record.ggtitle,jdbcType=VARCHAR},
+        ggimg = #{record.ggimg,jdbcType=VARCHAR},
+        ggurl = #{record.ggurl,jdbcType=VARCHAR},
+        ggtime = #{record.ggtime,jdbcType=INTEGER}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.tzhu.ssm.domain.Guanggao">
+        update guanggao
+        <set>
+            <if test="ggtitle != null">
+                ggtitle = #{ggtitle,jdbcType=VARCHAR},
+            </if>
+            <if test="ggimg != null">
+                ggimg = #{ggimg,jdbcType=VARCHAR},
+            </if>
+            <if test="ggurl != null">
+                ggurl = #{ggurl,jdbcType=VARCHAR},
+            </if>
+            <if test="ggtime != null">
+                ggtime = #{ggtime,jdbcType=INTEGER},
+            </if>
+        </set>
+        where ggid = #{ggid,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.tzhu.ssm.domain.Guanggao">
+        update guanggao
+        set ggtitle = #{ggtitle,jdbcType=VARCHAR},
+        ggimg = #{ggimg,jdbcType=VARCHAR},
+        ggurl = #{ggurl,jdbcType=VARCHAR},
+        ggtime = #{ggtime,jdbcType=INTEGER}
+        where ggid = #{ggid,jdbcType=INTEGER}
+    </update>
+</mapper>
