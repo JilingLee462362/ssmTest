@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!-- 数据库驱动包位置 -->
+    <classPathEntry location="D:\generator\mysql-connector-java-5.1.13-bin.jar"/>
+    <!--<classPathEntry location="C:\oracle\product\10.2.0\db_1\jdbc\lib\ojdbc14.jar" />-->
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <!-- 数据库链接URL、用户名、密码 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/jja1802_ssm"
+                        userId="root" password="123123">
+            <!-- <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@localhost:1521:orcl" userId="msa" password="msa"> -->
+        </jdbcConnection>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!-- 生成模型的包名和位置 -->
+        <javaModelGenerator targetPackage="com.tzhu.ssm.domain" targetProject="D:\generator\src">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!-- 生成的映射文件包名和位置 -->
+        <sqlMapGenerator targetPackage="com.tzhu.ssm.dao.mapper" targetProject="D:\generator\src">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!-- 生成DAO的包名和位置 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.tzhu.ssm.dao" targetProject="D:\generator\src">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <!-- 要生成那些表(更改tableName和domainObjectName就可以) -->
+        <table tableName="team" domainObjectName="Team" enableCountByExample="false" enableUpdateByExample="true"
+               enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false"/>
+        <table tableName="member" domainObjectName="Member" enableCountByExample="false" enableUpdateByExample="true"
+               enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false"/>
+
+        <table tableName="smbms_user" domainObjectName="SmbmsUser" enableCountByExample="false"
+               enableUpdateByExample="true" enableDeleteByExample="false" enableSelectByExample="true"
+               selectByExampleQueryId="false"/>
+        <table tableName="smbms_role" domainObjectName="SmbmsRole" enableCountByExample="false"
+               enableUpdateByExample="true" enableDeleteByExample="false" enableSelectByExample="true"
+               selectByExampleQueryId="false"/>
+        <table tableName="smbms_bill" domainObjectName="SmbmsBill" enableCountByExample="false"
+               enableUpdateByExample="true" enableDeleteByExample="false" enableSelectByExample="true"
+               selectByExampleQueryId="false"/>
+        <table tableName="smbms_provider" domainObjectName="SmbmsProvider" enableCountByExample="false"
+               enableUpdateByExample="true" enableDeleteByExample="false" enableSelectByExample="true"
+               selectByExampleQueryId="false"/>
+        <table tableName="smbms_address" domainObjectName="SmbmsAddress" enableCountByExample="false"
+               enableUpdateByExample="true" enableDeleteByExample="false" enableSelectByExample="true"
+               selectByExampleQueryId="false"/>
+
+        <table tableName="guanggao" domainObjectName="Guanggao" enableCountByExample="false"
+               enableUpdateByExample="true" enableDeleteByExample="false" enableSelectByExample="true"
+               selectByExampleQueryId="false"/>
+
+
+        <!--
+
+
+            <table tableName="district" domainObjectName="District" enableCountByExample="false" enableUpdateByExample="true" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false" />
+            <table tableName="house" domainObjectName="House" enableCountByExample="false" enableUpdateByExample="true" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false" />
+            <table tableName="street" domainObjectName="Street" enableCountByExample="false" enableUpdateByExample="true" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false" />
+            <table tableName="housetype" domainObjectName="HouseType" enableCountByExample="false" enableUpdateByExample="true" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false" />
+            <table tableName="userinfo" domainObjectName="Userinfo" enableCountByExample="false" enableUpdateByExample="true" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false" />
+        -->
+
+    </context>
+</generatorConfiguration>

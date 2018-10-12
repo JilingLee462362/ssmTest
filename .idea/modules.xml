@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ssm_springmvcSpringMybaits.iml" filepath="$PROJECT_DIR$/ssm_springmvcSpringMybaits.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web-front/web-front.iml" filepath="$PROJECT_DIR$/web-front/web-front.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web-mobie/web-mobie.iml" filepath="$PROJECT_DIR$/web-mobie/web-mobie.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web-pc/web-pc.iml" filepath="$PROJECT_DIR$/web-pc/web-pc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web-service/web-service.iml" filepath="$PROJECT_DIR$/web-service/web-service.iml" />
+    </modules>
+  </component>
+</project>

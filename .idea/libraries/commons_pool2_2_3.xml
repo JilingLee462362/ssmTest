@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="commons-pool2-2.3">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/web-mobie/lib/commons-pool2-2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web-mobie/lib/jedis-2.7.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ideaLibSources/jedis-2.7.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
